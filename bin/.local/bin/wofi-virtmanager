@@ -23,6 +23,6 @@ if [[ ! -z $selected ]]; then
     virsh --connect qemu:///system start "$vm_name"
   fi
 
-  # virt-manager --connect=qemu:///system --show-domain-console $vm_name
-  virt-viewer --connect=qemu:///system --direct "$vm_name" &
+  virt-manager --connect=qemu:///system --show-domain-console "$vm_name"
+  # virt-viewer --connect=qemu:///system --direct "$vm_name" &
 fi
