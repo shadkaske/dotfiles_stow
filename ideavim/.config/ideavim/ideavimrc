@@ -19,11 +19,12 @@ set idearefactormode=keep
 
 "" Plugins
 set surround
-set easymotion
 set multiple-cursors
 set highlightedyank
 set commentary
 set matchit
+set mini-ai
+set peekaboo
 set NERDTree
 
 "" Which Key Config
@@ -47,6 +48,27 @@ sethandler <C-w> a:vim
 sethandler <C-f> a:ide
 sethandler <C-y> a:ide
 sethandler <C-r> a:vim
+
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+" enhance vim f (find for char in characters to the right of the current cursor)
+nmap f <Action>(flash.find)
+xmap f <Action>(flash.find)
+" enhance vim F (find for char in characters to the left of the current cursor)
+nmap F <Action>(flash.find_backward)
+xmap F <Action>(flash.find_backward)
+" enhance vim t (till for char in characters to the right of the current cursor)
+nmap t <Action>(flash.till)
+xmap t <Action>(flash.till)
+" enhance vim T (till for char in characters to the left of the current cursor)
+nmap T <Action>(flash.till_backward)
+xmap T <Action>(flash.till_backward)
+" enhance vim ; (Repeat the last f/F/t/T search)
+nmap ; <Action>(flash.repeat)
+xmap ; <Action>(flash.repeat)
+" enhance vim , (Repeat the last f/F/t/T search backward)
+nmap , <Action>(flash.repeat_backward)
+xmap , <Action>(flash.repeat_backward)
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -75,9 +97,6 @@ inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 nmap <leader>. :set invhlsearch<cr>
-
-let g:WhichKeyDesc_easymotion_jump = "<leader>j Jump with Easymotion"
-map <leader>j <Plug>(easymotion-s)
 
 let g:WhichKeyDesc_hlsearch = "<leader>. Toggle Search Highlight"
 
@@ -110,7 +129,7 @@ let g:WhichKeyDesc_window_quit = "<leader>wq Close"
 map <leader>wq <Action>(CloseContent)
 
 let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
-map <leader>wv <Action>(SplitVertically)
+map <leader>wv <Action>(MoveTabRight)
 
 let g:WhichKeyDesc_window_split_horizontally = "<leader>ws Split horizontally"
 map <leader>ws <Action>(SplitHorizontally)
@@ -159,16 +178,21 @@ map <leader>fl <Action>(RecentLocations)
 
 " Git Prefix
 let g:WhichKeyDesc_git = "<leader>g Git"
+
+let g:WhichKeyDesc_git_commit = "<leader>gg Commit Window"
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
-" Lazygit (cwd)
-nmap <leader>gG <Action>(ActivateCommitToolWindow)
+
+let g:WhichKeyDesc_git_control_window = "<leader>gG Version Control"
+nmap <leader>gG <Action>(ActivateVersionControlToolWindow)
 " Git Blame Line
+let g:WhichKeyDesc_git_control_window = "<leader>gb Blame"
 nmap <leader>gb <Action>(Annotate)
 " Git Browse
-nmap <leader>gB <Action>(Vcs.Show.Log)
 " Lazygit Current File History
+let g:WhichKeyDesc_git_control_window = "<leader>gf Show File History"
 nmap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
 " Lazygit Log
+let g:WhichKeyDesc_git_control_window = "<leader>gl Browse Log"
 nmap <leader>gl <Action>(Vcs.Show.Log)
 
 " Buffer Prefix
