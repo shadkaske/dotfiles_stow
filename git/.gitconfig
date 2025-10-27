@@ -4,9 +4,11 @@ email = shadkaske@gmail.com
 [core]
 editor = nvim
 [merge]
-tool = nvim
+tool = meld
 [diff]
 tool = nvimdiff
+[mergetool "meld"]
+cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output="$MERGED"
 [mergetool]
 keepBackup = false
 prompt = false
@@ -17,8 +19,6 @@ cmd = nvim -f -c "Gdiffsplit!" "$MERGED"
 layout = "LOCAL,BASE,REMOTE / MERGED"
 [difftool "nvimdiff"]
 cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-[mergetool "vimdiff"]
-vimdiff
 [pull]
 rebase = true
 [init]
