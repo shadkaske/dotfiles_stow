@@ -40,7 +40,6 @@ zinit snippet OMZP::ubuntu
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::dnf
 zinit snippet OMZP::sudo
-zinit snippet OMZP::podman
 zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 zinit snippet OMZP::ssh-agent
@@ -126,10 +125,6 @@ alias t=sesh-sessions
 alias -- -='cd -'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias gcd='git checkout $(git config gitflow.branch.develop)'
-alias gch='git checkout $(git config gitflow.prefix.hotfix)'
-alias gcr='git checkout $(git config gitflow.prefix.release)'
-alias tinker='php artisan tinker'
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
 # Global Aliases
