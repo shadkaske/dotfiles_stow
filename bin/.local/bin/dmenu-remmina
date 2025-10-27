@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 remmina="$(which remmina)"
-dmenu_command="wofi -d -i -p 'Remmina Connections'"
+dmenu_command="rofi -dmenu -i -p Remmina"
 
 if [[ -f "$HOME/.config/remmina/remmina.pref" ]]; then
   remmina_location="$(grep '^datadir_path' ~/.config/remmina/remmina.pref | cut -d "=" -f2 | xargs echo -n)"

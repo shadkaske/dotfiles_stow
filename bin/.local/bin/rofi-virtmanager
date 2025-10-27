@@ -2,8 +2,6 @@
 
 # vi: ft=sh
 
-# vboxmanage startvm --type gui "$(vboxmanage list vms | cut -d '"' -f2 | dmenu -i -p "Virutal Machines")"
-
 vm_list=$(virsh --connect qemu:///system list --all | tail -n +3)
 
 net_default=$(virsh --connect qemu:///system net-list | rg default)
@@ -17,12 +15,12 @@ if [[ ! -z $selected ]]; then
   fi
 
   vm_name=$(echo "$selected" | awk '{print $2}')
-  vm_running=$(virsh --connect qemu:///system list | grep $vm_name)
+  vm_running=$(virsh --connect qemu:///system list | grep "$vm_name")
 
   if [[ -z $vm_running ]]; then
-    virsh --connect qemu:///system start $vm_name
+    virsh --connect qemu:///system start "$vm_name"
   fi
 
-  virt-manager --connect=qemu:///system --show-domain-console $vm_name
-  # virt-viewer --connect=qemu:///system --direct $vm_name &
+  virt-manager --connect=qemu:///system --show-domain-console "$vm_name"
+  # virt-viewer --connect=qemu:///system --direct "$vm_name" &
 fi
