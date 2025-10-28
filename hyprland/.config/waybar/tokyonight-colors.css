@@ -1,0 +1,12 @@
+/*
+ *
+ * Tokyo Night Theme Colors
+ *
+ */
+
+@define-color background #1f2335;
+@define-color occupied #27a1b9;
+@define-color empty #737aa2;
+@define-color active #bb9af7;
+@define-color onhover #4fd6be;
+@define-color urgent #c53b53;

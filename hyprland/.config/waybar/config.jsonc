@@ -1,9 +1,10 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "margin-top": 8,
-  "margin-left": 8,
-  "margin-right": 8,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
   "margin-bottom": 0,
   "spacing": 0,
   "modules-left": [
@@ -11,20 +12,16 @@
     "hyprland/submap"
   ],
   "modules-center": [
-    "hyprland/window",
-    "custom/separator",
-    "mpris"
+    "hyprland/window"
   ],
   "modules-right": [
+    "group/tray-expander",
     "network",
     "pulseaudio",
     "bluetooth",
     "battery",
     "backlight",
-    "tray",
-    "clock",
-    "custom/notification",
-    "custom/power"
+    "clock"
   ],
   "hyprland/window": {
     "separate-outputs": true,
@@ -79,6 +76,21 @@
     "interval": 5,
     "format": "󰍛 {}%",
     "max-length": 10
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false
   },
   "tray": {
     "spacing": 10,
@@ -223,26 +235,6 @@
     "format": "",
     "interval": "once",
     "tooltip": false
-  },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "  ",
-      "none": "  ",
-      "dnd-notification": "  ",
-      "dnd-none": "  ",
-      "inhibited-notification": "  ",
-      "inhibited-none": "  ",
-      "dnd-inhibited-notification": "  ",
-      "dnd-inhibited-none": "  "
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-    "escape": true
   },
   "custom/power": {
     "tooltip": false,

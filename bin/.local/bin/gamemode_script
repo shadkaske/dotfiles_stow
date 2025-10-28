@@ -4,12 +4,12 @@ case "$1" in
 # Ending GameMode
 "end")
   systemctl --user start kanata.service
-  waybar >/dev/null 2>&1 &
+  systemctl --user start waybar.service
   ;;
 # Starting GameMode
 "start")
   systemctl --user stop kanata.service
-  killall -SIGUSR1 waybar >/dev/null 2>&1
+  systemctl --user stop waybar.service
   ;;
 *)
   echo default
